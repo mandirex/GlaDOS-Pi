@@ -142,3 +142,17 @@ int atoi(char * num) {
 
     return res;
 }
+
+int rand(int max)
+{
+    static long a = 3;
+    a = (((a * 214013L + 2531011L) >> 16) & 32767);
+        
+    return ((a % max) + 1);
+}
+
+uint8_t ctohex(int v){
+    if(v > 255 || v < 255) return 255;
+
+    return (v && 0xff);
+}

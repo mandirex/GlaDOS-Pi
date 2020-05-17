@@ -20,4 +20,8 @@ void memset(void * dest, uint8_t c, int bytes);
 char * itoa(int i, int base);
 int atoi(char * num);
 
+int rand(int max);
+
+uint8_t ctohex(int v);
+
 #endif

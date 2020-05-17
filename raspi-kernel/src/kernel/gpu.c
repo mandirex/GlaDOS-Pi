@@ -6,16 +6,24 @@
 #include <kernel/chars_pixels.h>
 #include <common/stdlib.h>
 
-
-
 void write_pixel(uint32_t x, uint32_t y, const pixel_t * pix) {
     uint8_t * location = fbinfo.buf + y*fbinfo.pitch + x*BYTES_PER_PIXEL;
     memcpy(location, pix, BYTES_PER_PIXEL);
 }
 
+void gpu_setcolorfg(int r, int g, int b){
+    FORE.red = (r & 0xff);
+    FORE.green = (g & 0xff);
+    FORE.blue = (b & 0xff);
+}
+
+void gpu_setcolorbg(int r, int g, int b){
+    BACK.red = (r & 0xff);
+    BACK.green = (g & 0xff);
+    BACK.blue = (b & 0xff);
+}
+
 void gpu_putc(char c) {
-    static const pixel_t WHITE = {0xff, 0xff, 0xff};
-    static const pixel_t BLACK = {0x00, 0x00, 0x00};
     uint8_t w,h;
     uint8_t mask;
     const uint8_t * bmp = font(c);
@@ -41,9 +49,9 @@ void gpu_putc(char c) {
         for(h = 0; h < CHAR_HEIGHT; h++) {
             mask = 1 << (w);
             if (bmp[h] & mask)
-                write_pixel(fbinfo.chars_x*CHAR_WIDTH + w, fbinfo.chars_y*CHAR_HEIGHT + h, &WHITE);
+                write_pixel(fbinfo.chars_x*CHAR_WIDTH + w, fbinfo.chars_y*CHAR_HEIGHT + h, &FORE);
             else
-                write_pixel(fbinfo.chars_x*CHAR_WIDTH + w, fbinfo.chars_y*CHAR_HEIGHT + h, &BLACK);
+                write_pixel(fbinfo.chars_x*CHAR_WIDTH + w, fbinfo.chars_y*CHAR_HEIGHT + h, &BACK);
         }
     }
 
@@ -63,6 +71,15 @@ void gpu_init(void) {
     for (uint32_t j = 0; j < fbinfo.height; j++) {
         for (uint32_t i = 0; i < fbinfo.width; i++) {
             write_pixel(i,j,&BLACK);
+        }
+    }
+}
+
+// clear screen
+void gpu_cls(){
+    for (uint32_t j = 0; j < fbinfo.height; j++) {
+        for (uint32_t i = 0; i < fbinfo.width; i++) {
+            write_pixel(i,j,&BACK);
         }
     }
 }
