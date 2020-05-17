@@ -6,7 +6,7 @@ A very simple console based os for the Raspberry PI
 * Working keyboard input
 * Maybe a BASIC interpreter
 * A basic shell for interaction with the os
-* A interpreter for our own games engine (text based)
+* An interpreter for our own games engine (text based)
 
 ### So far:
 ![17_05_2020](https://github.com/mandirex/GlaDOS-Pi/blob/master/screenshots/17_05_2020.PNG "Testing Screen")
