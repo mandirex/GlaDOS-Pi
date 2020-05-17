@@ -9,7 +9,8 @@ A very simple console based os for the Raspberry PI
 * A interpreter for our own games engine (text based)
 
 ### So far:
-![17_05_2020](https://github.com/mandirex/glados-pi/raw/master/screenshots/17_05_2020.png "Testing Screen")
+![17_05_2020](https://github.com/mandirex/GlaDOS-Pi/blob/master/screenshots/17_05_2020.PNG "Testing Screen")
+
 
 ### Tools / Rescources: 
 * QEmu - https://www.qemu.org/
