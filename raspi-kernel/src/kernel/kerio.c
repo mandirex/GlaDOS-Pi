@@ -1,8 +1,11 @@
 #include <kernel/uart.h>
 #include <kernel/kerio.h>
+#include <kernel/framebuffer.h>
 #include <kernel/gpu.h>
 #include <common/stdlib.h>
 #include <stdarg.h>
+
+#include <stdint.h>
 
 char getc(void) {
     return uart_getc();
@@ -59,4 +62,22 @@ void printf(const char * fmt, ...) {
     }
 
     va_end(args);
+}
+
+void write(char c){
+    switch(c){
+        case 127:
+            gpu_movecursor(-1,0);
+            putc(' ');
+            gpu_movecursor(-1,0);
+            break;
+
+        case 13:
+            newline();
+            break;
+
+        default:
+            putc(c);
+            break;
+    }
 }

@@ -26,4 +26,10 @@ void gpu_setforeground(int r, int g, int b);
 
 void gpu_cls();
 
+void gpu_setcursor(uint32_t x, uint32_t y);
+
+void gpu_movecursor(uint32_t x, uint32_t y);
+
+void newline();
+
 #endif

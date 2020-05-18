@@ -82,4 +82,19 @@ void gpu_cls(){
             write_pixel(i,j,&BACK);
         }
     }
+    gpu_setcursor(0,0);
+}
+
+void gpu_setcursor(uint32_t x, uint32_t y){
+    fbinfo.chars_x = x;
+    fbinfo.chars_y = y;
+}
+
+void gpu_movecursor(uint32_t x, uint32_t y){
+    fbinfo.chars_x += x;
+    fbinfo.chars_y += y;
+}
+
+void newline(){
+    gpu_setcursor(0,fbinfo.chars_y + 1);
 }

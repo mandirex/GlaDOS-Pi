@@ -156,3 +156,30 @@ uint8_t ctohex(int v){
 
     return (v && 0xff);
 }
+
+uint32_t strlen(const char *str)
+{
+    int count = 0;
+    while(*str!='\0'){
+        count++;
+        str++;
+    }
+    return count;
+}
+
+void append(char* s, char c) {
+        uint32_t len = strlen(s);
+        s[len] = c;
+        s[len+1] = '\0';
+}
+
+int strcomp(char stringa[], char stringb[]) {
+    int i;
+    // Compare for i=0 to the point where stringa doesnt match stringb anymore
+    for(i=0; stringa[i] == stringb[i]; i++){
+        // if we have reached the end of stringa and the strings are still equal
+        // then we can return 0 because both strings are equal
+        if(stringa[i] == '\0') return 0;
+    }
+    return stringa[i] - stringb[i];
+}

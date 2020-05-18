@@ -24,4 +24,10 @@ int rand(int max);
 
 uint8_t ctohex(int v);
 
+uint32_t strlen(const char *str);
+
+void append(char* s, char c);
+
+int strcomp(char stringa[], char stringb[]);
+
 #endif

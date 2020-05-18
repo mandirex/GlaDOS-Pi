@@ -11,6 +11,8 @@
 #include <kernel/mutex.h>
 #include <common/stdlib.h>
 
+#define _VERSION "0.0.18"
+
 void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
 {
     // Declare as unused
@@ -32,10 +34,37 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
     printf("DONE\n");
     printf("INITIALIZING FINISHED\n");
 
-    
+    gpu_cls();
+
+    printf("Genetic Lifeform and Disk Operating System [%s]\n",_VERSION);
+    printf("(c) 2020 Aperture Science, Inc. ALl rights reserved\n\n");
+
+    char input[256];
+    printf("GlaDOS>");
+
     while (1) {
-        gpu_setcolorfg(rand(255),rand(255),rand(255));
-        printf("Rainbow text on GlaDOS!\n");
-        udelay(100000);
+        char c = getc();
+
+        if(c == 13){
+            newline();
+            newline();
+
+            if(strcomp("cls",input) == 0){
+                gpu_cls();
+            }else{
+                putc('\'');
+                puts(input);
+                putc('\'');
+                puts(" is not recognized as an internal or external command.");
+                newline();
+                newline();
+            }
+            
+            memset(&input[0], 0, sizeof(input));
+            puts("GlaDOS>");
+        }else{
+            append(input, c);
+            write(c);
+        }
     }
 }
