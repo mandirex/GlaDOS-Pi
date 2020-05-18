@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 *.o
 *.img
+=======
+*.o
+*.img
+*.elf
+>>>>>>> 2c84fbf06d5df609bdd768fc316e72989ddb6e66
