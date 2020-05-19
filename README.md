@@ -12,7 +12,11 @@ A very simple console based os for the Raspberry PI
 ![17_05_2020](https://github.com/mandirex/GlaDOS-Pi/blob/master/screenshots/17_05_2020.PNG "Testing Screen")
 
 
+
+
 ### Tools / Rescources: 
+* This github - https://jsandler18.github.io/
+* FAT file system - http://elm-chan.org/fsw/ff/00index_e.html
 * QEmu - https://www.qemu.org/
 * GCC ARM - https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 * make - https://www.gnu.org/software/make/
