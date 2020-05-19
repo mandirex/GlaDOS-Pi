@@ -37,7 +37,7 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
     gpu_cls();
 
     printf("Genetic Lifeform and Disk Operating System [%s]\n",_VERSION);
-    printf("(c) 2020 Aperture Science, Inc. ALl rights reserved\n\n");
+    printf("(c) 2020 Aperture Science, Inc. All rights reserved\n\n");
 
     char input[256];
     printf("GlaDOS>");
