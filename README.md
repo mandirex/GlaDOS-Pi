@@ -20,4 +20,4 @@ A very simple console based os for the Raspberry PI
 * QEmu - https://www.qemu.org/
 * GCC ARM - https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 * make - https://www.gnu.org/software/make/
- 
+* Raspberry PI documentation - https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2711/rpi_DATA_2711_1p0.pdf
